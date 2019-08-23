@@ -2,41 +2,62 @@
 using System.Collections;
 using UnityEngine.UI;
 using TMPro;
-public class AddNewArmyUnit : MonoBehaviour
+using System.Collections.Generic;
+
+public class AddNewArmyUnit : AbstractAddObject
 {
     [SerializeField]
-    TextMeshProUGUI _count_army;
-    
-    int Parse_Count(ref int current_army_count)
+    List<GameObject> _armyUnits_list;
+
+    Hashtable armyHash = new Hashtable();
+
+    bool create_new_unit = true;
+    private void Start()
     {
-        string need_to_parse = _count_army.text;
-        string max_army_count ="";
-        string current_army_count_s = "";
-        int help = 1000;
-        for (int i = 0; i < need_to_parse.Length; i++)
-        {
-            if(need_to_parse[i] == '/')
-            {
-                help = i;             
-            }
-            if (i > help)
-            {
-                max_army_count += need_to_parse[i];
-            }
-            else if (i < help)
-            {
-                current_army_count_s += need_to_parse[i];
-            }
-        }
-        current_army_count = System.Int32.Parse(current_army_count_s);
-        return System.Int32.Parse(max_army_count);
+        GameObject go = AddObject("Warrior", "VeryStarngeUnit",0);
+        GameObject go1 = AddObject("Warrior", "VeryStarngeUnit", 0);
+        GameObject go21 = AddObject("Warrior", "VeryStarngeUnit", 0);
+        GameObject go2 = AddObject("Warrior", "VeryStarngeUnit", 0);
+        GameObject go3 = AddObject("Warrior", "VeryStarngeUnit", 2);
+        GameObject go4 = AddObject("Warrior", "VeryStarngeUnit", 2);
     }
 
-    public void AddUnityToAllArmy()
+    /// <summary>
+    /// add unit_img to list
+    /// </summary>
+    /// <param name="name_factory"></param>
+    /// <param name="description_factory"></param>
+    public GameObject AddObject(string name_unit, string description_unit, int id_unit) // also need to add index unit
     {
-        int current = 0;
-        int max = Parse_Count(ref current);
-        _count_army.text = current+1 +"/"+ max;
-        Debug.Log("Army = "+_count_army);
+        create_new_unit = true;
+        ChooseArmyUnit unit_old = null;
+        for (int i = 0; i < _armyUnits_list.Count; i++)
+        {
+            if(_armyUnits_list[i].GetComponent<ChooseArmyUnit>().id_unit == id_unit)
+            {
+                unit_old = _armyUnits_list[i].GetComponent<ChooseArmyUnit>();
+                _armyUnits_list.Add(unit_old.gameObject);
+                unit_old.AddMaxUnit();
+                Debug.Log("OLD");
+                create_new_unit = false;
+                break;
+            }
+        }
+        if (create_new_unit == true)
+        {
+            GameObject go = Instantiate(_objectImg_prefab, _parent_obj);
+            ChooseArmyUnit unit = go.GetComponent<ChooseArmyUnit>();
+            unit.SetParams(name_unit, description_unit);
+            unit.id_unit = id_unit;
+            unit.AddMaxUnit();
+            _armyUnits_list.Add(go);
+            Debug.Log("NEW");
+            return go;
+        }
+        else
+        {
+            return unit_old.gameObject;
+        }
+        
     }
 }
