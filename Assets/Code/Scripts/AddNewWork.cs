@@ -10,7 +10,7 @@ public class AddNewWork : AbstractAddObject
 
     private void Start()
     {
-        AddObject("FairyRiver", "Very Dangeres Place. Be carefull");
+        AddObject("Fill water in the Lake", "Add 1 dirty water. needto craft place with bears");
     }
 
     /// <summary>

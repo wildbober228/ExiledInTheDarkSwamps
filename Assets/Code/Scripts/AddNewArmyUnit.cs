@@ -40,7 +40,6 @@ public class AddNewArmyUnit : AbstractAddObject
                 unit_old = _armyUnits_list[i].GetComponent<ChooseArmyUnit>();
                 _armyUnits_list.Add(unit_old.gameObject);
                 unit_old.AddMaxUnit();
-                Debug.Log("OLD");
                 create_new_unit = false;
                 break;
             }
@@ -53,7 +52,6 @@ public class AddNewArmyUnit : AbstractAddObject
             unit.id_unit = id_unit;
             unit.AddMaxUnit();
             _armyUnits_list.Add(go);
-            Debug.Log("NEW");
             return go;
         }
         else

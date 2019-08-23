@@ -30,6 +30,11 @@ public class StartWork : AbstractInfoClass
         }
     }
 
+    public void GetRewardFromWork()
+    {
+        Debug.Log("Reward");
+    }
+
     IEnumerator SetState(float time)
     {
         yield return new WaitForSeconds(time);

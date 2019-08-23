@@ -62,7 +62,6 @@ public class ChooseArmyUnit : AbstractInfoClass
             {
                 _army_size_ui.text = current_armySize + 1 + "/" + max_armySize;
                 _count_army.text = current + 1 + "/" + max;
-                Debug.Log("Army = " + _count_army.text);
             }
         }
     }
@@ -78,7 +77,6 @@ public class ChooseArmyUnit : AbstractInfoClass
             if (current_armySize !=0) {
                 _army_size_ui.text = current_armySize - 1 + "/" + max_armySize;
                 _count_army.text = current - 1 + "/" + max;
-                Debug.Log("Army = " + _count_army.text);
             }
         }
     }
@@ -88,7 +86,6 @@ public class ChooseArmyUnit : AbstractInfoClass
         int current = 0;
         int max = Parse_Count(ref current, _count_army.text) + 1;
         _count_army.text = current + "/" + max;
-        Debug.Log("Army = " + _count_army.text);
     }
 
     public void RemoveMaxUnit()
@@ -98,7 +95,6 @@ public class ChooseArmyUnit : AbstractInfoClass
         if (max != 0)
         {
             _count_army.text = current + "/" + max;
-            Debug.Log("Army = " + _count_army.text);
         }
     }
 
