@@ -9,11 +9,13 @@ public class AddNewArmyUnit : AbstractAddObject
     [SerializeField]
     List<GameObject> _armyUnits_list;
 
-    Hashtable armyHash = new Hashtable();
+    
+
 
     bool create_new_unit = true;
     private void Start()
     {
+      
         GameObject go = AddObject("Warrior", "VeryStarngeUnit",0);
         GameObject go1 = AddObject("Warrior", "VeryStarngeUnit", 0);
         GameObject go21 = AddObject("Warrior", "VeryStarngeUnit", 0);

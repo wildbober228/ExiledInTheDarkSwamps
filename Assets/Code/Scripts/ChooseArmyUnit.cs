@@ -15,7 +15,7 @@ public class ChooseArmyUnit : AbstractInfoClass
     [SerializeField]
     Button _remove_unit;
 
-    
+    TextMeshProUGUI _army_size_ui;
     //ArmySize
     int Parse_Count(ref int current_army_count, string n_parse)
     {
@@ -43,7 +43,7 @@ public class ChooseArmyUnit : AbstractInfoClass
     }
     private void Start()
     {
-        
+        _army_size_ui = GameObject.FindWithTag("ArmySize").GetComponent<TextMeshProUGUI>();
         mainAlert = GameObject.Find("Canvas").GetComponent<MainAlerts>();
         _info_button.onClick.AddListener(OnInfo);
 
@@ -56,8 +56,14 @@ public class ChooseArmyUnit : AbstractInfoClass
         int max = Parse_Count(ref current,_count_army.text);
         if (current < max)
         {
-            _count_army.text = current + 1 + "/" + max;
-            Debug.Log("Army = " + _count_army.text);
+            int current_armySize = 0;
+            int max_armySize = Parse_Count(ref current_armySize, _army_size_ui.text);
+            if (current_armySize < max_armySize)
+            {
+                _army_size_ui.text = current_armySize + 1 + "/" + max_armySize;
+                _count_army.text = current + 1 + "/" + max;
+                Debug.Log("Army = " + _count_army.text);
+            }
         }
     }
 
@@ -67,8 +73,13 @@ public class ChooseArmyUnit : AbstractInfoClass
         int max = Parse_Count(ref current, _count_army.text);
         if (current != 0)
         {
-            _count_army.text = current - 1 + "/" + max;
-            Debug.Log("Army = " + _count_army.text);
+            int current_armySize = 0;
+            int max_armySize = Parse_Count(ref current_armySize, _army_size_ui.text);
+            if (current_armySize !=0) {
+                _army_size_ui.text = current_armySize - 1 + "/" + max_armySize;
+                _count_army.text = current - 1 + "/" + max;
+                Debug.Log("Army = " + _count_army.text);
+            }
         }
     }
 
