@@ -2,10 +2,9 @@
 using System.Collections;
 using UnityEngine.UI;
 using TMPro;
-using Assets.Code.Interface;
 using System;
 
-public class ChooseArmyUnit : AbstractInfoClass, IParseText
+public class ChooseArmyUnit : AbstractInfoClass
 {
     public int id_unit;
     [SerializeField]
@@ -16,9 +15,9 @@ public class ChooseArmyUnit : AbstractInfoClass, IParseText
     [SerializeField]
     Button _remove_unit;
 
-    IParseText parse = new ChooseArmyUnit();
+    
     //ArmySize
-    int IParseText.Parse_Count(ref int current_army_count, string n_parse)
+    int Parse_Count(ref int current_army_count, string n_parse)
     {
         string need_to_parse = n_parse;
         string max_army_count = "";
@@ -54,7 +53,7 @@ public class ChooseArmyUnit : AbstractInfoClass, IParseText
     public void AddUnityToAllArmy()
     {
         int current = 0;
-        int max = parse.Parse_Count(ref current,_count_army.text);
+        int max = Parse_Count(ref current,_count_army.text);
         if (current < max)
         {
             _count_army.text = current + 1 + "/" + max;
@@ -65,7 +64,7 @@ public class ChooseArmyUnit : AbstractInfoClass, IParseText
     public void RemoveUnityFromAllArmy()
     {
         int current = 0;
-        int max = parse.Parse_Count(ref current, _count_army.text);
+        int max = Parse_Count(ref current, _count_army.text);
         if (current != 0)
         {
             _count_army.text = current - 1 + "/" + max;
@@ -76,7 +75,7 @@ public class ChooseArmyUnit : AbstractInfoClass, IParseText
     public void AddMaxUnit()
     {
         int current = 0;
-        int max = parse.Parse_Count(ref current, _count_army.text) + 1;
+        int max = Parse_Count(ref current, _count_army.text) + 1;
         _count_army.text = current + "/" + max;
         Debug.Log("Army = " + _count_army.text);
     }
@@ -84,7 +83,7 @@ public class ChooseArmyUnit : AbstractInfoClass, IParseText
     public void RemoveMaxUnit()
     {
         int current = 0;
-        int max = parse.Parse_Count(ref current, _count_army.text) -1;
+        int max = Parse_Count(ref current, _count_army.text) -1;
         if (max != 0)
         {
             _count_army.text = current + "/" + max;
