@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Canvas
   - ArmySize
+  - ItemsStorage
   layers:
   - Default
   - TransparentFX

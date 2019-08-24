@@ -4,10 +4,10 @@
 [CreateAssetMenu(menuName = "Items/Item")]
 public class Item : ScriptableObject
 {
-    public ChooseItem Chooseitem;
-
     [SerializeField]
     private string _name;
+    [SerializeField]
+    private string _description;
     [SerializeField]
     private int _cost;
     [SerializeField]
@@ -15,7 +15,10 @@ public class Item : ScriptableObject
     [SerializeField]
     private int _count;
 
+
+
     public string Name => _name;
+    public string Description => _description;
     public int Cost => _cost;
     public int Id => _id_item;
     public int Count => _count;

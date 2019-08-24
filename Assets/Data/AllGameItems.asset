@@ -10,6 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eab9e4acc0e7e4c44b20f91b9023a59a, type: 3}
-  m_Name: New All Game Items
+  m_Name: AllGameItems
   m_EditorClassIdentifier: 
-  Items_inGame: []
+  Items_inGame:
+  - {fileID: 11400000, guid: 34354e2a700be3348a1e2a89c21db886, type: 2}
+  - {fileID: 11400000, guid: d6bdb4b1590b25048a75b37e00f695fe, type: 2}

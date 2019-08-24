@@ -14,4 +14,9 @@ public class ItemsList : ScriptableObject
         _items_inStorage.Add(item);
         Debug.Log("Add new Item to Storage");
     }
+
+    private void OnDisable()
+    {
+        _items_inStorage.Clear();
+    }
 }

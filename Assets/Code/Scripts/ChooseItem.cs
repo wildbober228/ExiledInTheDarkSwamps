@@ -9,8 +9,11 @@ public class ChooseItem : AbstractInfoClass
     [SerializeField]
     TextMeshProUGUI count_text_ui;
 
+    
+
     private void Start()
     {
+       
         mainAlert = GameObject.Find("Canvas").GetComponent<MainAlerts>();
         _info_button.onClick.AddListener(OnInfo);
     }
