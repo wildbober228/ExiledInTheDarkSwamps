@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
+
 public class StartWork : AbstractInfoClass
 {
     [SerializeField]
@@ -13,8 +15,24 @@ public class StartWork : AbstractInfoClass
     float timetoWork = 2.0f;
     AddNewItemToStorage _item_to_storage;
 
-    [SerializeField] Item item_to_mine;
-    [SerializeField] int count_to_mine_per_tick;
+    [Header("ItemsToCollect")]
+    [SerializeField]
+    ItemsList _items_to_mine;
+    [Header("CountItems")]
+    [SerializeField]
+    int _count_items_to_mine;
+    [SerializeField]
+    int _item_chanse;
+
+    ItemsList items_to_get;
+   
+    //[SerializeField] Item item_to_mine;
+    //[SerializeField] int count_to_mine_per_tick;
+    private void OnValidate()
+    {
+       
+    }
+
     private void Start()
     {
         _item_to_storage = GameObject.FindWithTag("ItemsStorage").GetComponent<AddNewItemToStorage>();
@@ -36,7 +54,19 @@ public class StartWork : AbstractInfoClass
 
     void GetRewardFromWork()
     {
-        _item_to_storage.AddObject(item_to_mine.name, item_to_mine.Description, item_to_mine,count_to_mine_per_tick);     
+        
+        RandomItems MyRandom = new RandomItems();
+
+        
+        items_to_get = MyRandom.GetRandomItems(_items_to_mine, _item_chanse);
+        for (int i = 0; i < items_to_get.GetList().Count; i++)
+        {
+            _item_to_storage.AddObject(items_to_get.GetList()[i].name, items_to_get.GetList()[i].Description, items_to_get.GetList()[i], _count_items_to_mine);
+        }
+       
+
+
+        //_item_to_storage.AddObject(item_to_mine.name, item_to_mine.Description, item_to_mine,count_to_mine_per_tick);     
     }
 
     IEnumerator SetState(float time)
@@ -51,8 +81,8 @@ public class StartWork : AbstractInfoClass
 
     public void AddMineItem(Item item, int count)
     {
-        item_to_mine = item;
-        count_to_mine_per_tick = count;
+        _items_to_mine.AddItemToStorage(item);
+        _count_items_to_mine= count;
     }
 
     public override void OnInfo()

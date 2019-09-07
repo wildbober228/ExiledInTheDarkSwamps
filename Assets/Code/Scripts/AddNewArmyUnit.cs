@@ -16,12 +16,12 @@ public class AddNewArmyUnit : AbstractAddObject
     private void Start()
     {
       
-        GameObject go = AddObject("Warrior", "VeryStarngeUnit",0);
-        GameObject go1 = AddObject("Warrior", "VeryStarngeUnit", 0);
-        GameObject go21 = AddObject("Warrior", "VeryStarngeUnit", 0);
-        GameObject go2 = AddObject("Warrior", "VeryStarngeUnit", 0);
-        GameObject go3 = AddObject("Warrior", "VeryStarngeUnit", 2);
-        GameObject go4 = AddObject("Warrior", "VeryStarngeUnit", 2);
+        //GameObject go = AddObject("Warrior", "VeryStarngeUnit",0);
+        //GameObject go1 = AddObject("Warrior", "VeryStarngeUnit", 0);
+        //GameObject go21 = AddObject("Warrior", "VeryStarngeUnit", 0);
+        //GameObject go2 = AddObject("Warrior", "VeryStarngeUnit", 0);
+        //GameObject go3 = AddObject("Warrior", "VeryStarngeUnit", 2);
+        //GameObject go4 = AddObject("Warrior", "VeryStarngeUnit", 2);
     }
 
     /// <summary>

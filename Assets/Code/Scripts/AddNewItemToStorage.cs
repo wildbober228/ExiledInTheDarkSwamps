@@ -18,7 +18,7 @@ public class AddNewItemToStorage : AbstractAddObject
     private void Start()
     {
         
-        AddObject("Dirty Water","Use to create a field of beryes", _all_game_items.GetTestItem(),103);
+        //AddObject("Dirty Water","Use to create a field of beryes", _all_game_items.GetTestItem(),103);
     }
 
     public void SetCount(int id, int count)
@@ -32,8 +32,6 @@ public class AddNewItemToStorage : AbstractAddObject
         can_spawn_newItem = true;
         ChooseItem chooseItem = null;
         //Debug.Log("Point 0 key = "+ _save_items_with_id[item_to_addd.Id].Id);
-
-
         if (_save_items_with_id.ContainsKey(item_to_addd.Id))
         {
             can_spawn_newItem = false;
@@ -53,11 +51,31 @@ public class AddNewItemToStorage : AbstractAddObject
             _save_chooseitems.Add(item_to_addd.Id, chooseItem);           
             _save_items_with_id.Add(item_to_addd.Id, item_to_addd);
           
-            SetCount(item_to_addd.Id,count);
-            
-        }
-        
-
-
+            SetCount(item_to_addd.Id,count);         
+        }            
     }
+
+    public bool GetItem(Item item_to_check, int count)
+    {
+        if (_save_items_with_id.ContainsKey(item_to_check.Id))
+        {
+            if(_save_items_with_id[item_to_check.Id].Count >= count)
+            {
+                //save_items_with_id[item_to_check.Id].AddCountItem(-count);
+                return true;
+            }
+            else
+            {
+                Debug.Log("Dont have enuf items" + "id_c"+ _save_items_with_id[item_to_check.Id].Count + "id "+ count);
+                return false;
+            }
+        }
+        else
+        {
+            Debug.Log("Dont have this type items");
+            return false;
+        }
+    }
+
+    
 }

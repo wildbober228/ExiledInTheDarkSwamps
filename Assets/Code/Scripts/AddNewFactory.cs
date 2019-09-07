@@ -12,7 +12,7 @@ public class AddNewFactory : AbstractAddObject
 
     private void Start()
     {
-        GameObject go = AddObject("Factory Wood","In this factory you can mine wood");
+        //GameObject go = AddObject("Factory Wood","In this factory you can mine wood");
     }
 
     /// <summary>

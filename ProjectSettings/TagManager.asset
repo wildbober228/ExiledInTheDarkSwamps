@@ -7,6 +7,8 @@ TagManager:
   - Canvas
   - ArmySize
   - ItemsStorage
+  - AddArmyUnit
+  - Panel_Right
   layers:
   - Default
   - TransparentFX

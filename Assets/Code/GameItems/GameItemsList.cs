@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Items/ItemsList")]
-public class ItemsList : ScriptableObject
+[CreateAssetMenu(menuName = "Items/GameItemsList")]
+class GameItemsList : ScriptableObject
 {
     [SerializeField]
     bool _isStorage = true;
@@ -14,19 +14,18 @@ public class ItemsList : ScriptableObject
 
     public List<Item> GetList()
     {
-
-        
         return _items_inStorage;
     }
 
     public void AddItemToStorage(Item item)
     {
         _items_inStorage.Add(item);
+        Debug.Log("Add new Item to Storage");
     }
 
     private void OnDisable()
     {
-        if(_isStorage)
-        _items_inStorage.Clear();
+        if (_isStorage)
+            _items_inStorage.Clear();
     }
 }

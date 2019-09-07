@@ -10,7 +10,7 @@ public class AddNewLocation : AbstractAddObject
 
     private void Start()
     {
-        AddObject("FairyRiver", "Very Dangeres Place. Be carefull");
+        //AddObject("FairyRiver", "Very Dangeres Place. Be carefull");
     }
 
     /// <summary>
