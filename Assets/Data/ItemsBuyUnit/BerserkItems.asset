@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d3d5a041aa0d9e4f94b46f39ee22ddd, type: 3}
   m_Name: BerserkItems
   m_EditorClassIdentifier: 
-  _items_inStorage: []
+  _isStorage: 0
+  _items_inStorage:
+  - {fileID: 11400000, guid: d6bdb4b1590b25048a75b37e00f695fe, type: 2}
+  - {fileID: 11400000, guid: 34354e2a700be3348a1e2a89c21db886, type: 2}

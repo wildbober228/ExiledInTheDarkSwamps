@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9da3939a6fefef498fbca6f510a8e95, type: 3}
   m_Name: Seed
   m_EditorClassIdentifier: 
-  Chooseitem: {fileID: 0}
   _name: Ugly Seed
+  _description: 
   _cost: 2
   _id_item: 1
-  _count: 0
-  typeItem: 0
+  _count: 86
+  typeItem: 1

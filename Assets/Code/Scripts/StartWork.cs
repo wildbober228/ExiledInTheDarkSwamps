@@ -55,18 +55,18 @@ public class StartWork : AbstractInfoClass
     void GetRewardFromWork()
     {
         
-        RandomItems MyRandom = new RandomItems();
+        //RandomItems MyRandom = new RandomItems();
 
         
-        items_to_get = MyRandom.GetRandomItems(_items_to_mine, _item_chanse);
-        for (int i = 0; i < items_to_get.GetList().Count; i++)
-        {
-            _item_to_storage.AddObject(items_to_get.GetList()[i].name, items_to_get.GetList()[i].Description, items_to_get.GetList()[i], _count_items_to_mine);
-        }
+        //items_to_get = MyRandom.GetRandomItems(_items_to_mine, _item_chanse);
+        //for (int i = 0; i < items_to_get.GetList().Count; i++)
+        //{
+        //    _item_to_storage.AddObject(items_to_get.GetList()[i].name, items_to_get.GetList()[i].Description, items_to_get.GetList()[i], _count_items_to_mine);
+        //}
        
 
 
-        //_item_to_storage.AddObject(item_to_mine.name, item_to_mine.Description, item_to_mine,count_to_mine_per_tick);     
+        _item_to_storage.AddObject(_items_to_mine.GetList()[0].name, _items_to_mine.GetList()[0].Description, _items_to_mine.GetList()[0], _count_items_to_mine);     
     }
 
     IEnumerator SetState(float time)

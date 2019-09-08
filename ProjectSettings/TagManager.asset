@@ -9,6 +9,7 @@ TagManager:
   - ItemsStorage
   - AddArmyUnit
   - Panel_Right
+  - Panel_Main
   layers:
   - Default
   - TransparentFX

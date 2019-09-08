@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d3d5a041aa0d9e4f94b46f39ee22ddd, type: 3}
   m_Name: work_pickupBerries
   m_EditorClassIdentifier: 
-  _isStorage: 1
-  _items_inStorage: []
+  _isStorage: 0
+  _items_inStorage:
+  - {fileID: 11400000, guid: f32c6b1d99fcd5241874b149c6d982b4, type: 2}
+  - {fileID: 11400000, guid: d6bdb4b1590b25048a75b37e00f695fe, type: 2}
